@@ -18,35 +18,37 @@ using namespace ariel;
 
 
 int main() {
-    Point a(32.3,44),b(1.3,3.5);
-    assert(a.distance(b) == b.distance(a));
-    Cowboy tom = new Cowboy("Tom", a);
-    OldNinja sushi = new OldNinja("sushi", b);
-    tom.shoot(sushi);
-    cout << tom->Print() <<endl;
+   Point a(32.3,44),b(1.3,3.5), c(64,57), d(12,81);
+   assert(a.distance(b) == b.distance(a));
+   Cowboy tom("Tom", a);
+   OldNinja sushi("sushi", b);
+   YoungNinja yogi("Yogi", c);
+   TrainedNinja hikari("Hikari", d);
+   tom.shoot(&sushi);
+   tom.Print();
 
-    sushi.move(tom);
-    sushi.slash(tom);
+   sushi.move(&tom);
+   sushi.slash(&tom);
 
-    Team a(tom); 
-    a.add(new YountNinja("Yogi", Point(64,57)));
+   Team aT(&tom); 
+   aT.add(&yogi);
 
-    // Team b(&tom); should throw tom is already in team a
+   // Team b(&tom); should throw tom is already in team a
 
-     Team b(&sushi);
-     b.add(new TrainedNinja("Hikari", Point(12,81)));
+   Team bT(&sushi);
+   bT.add(&hikari);
 
 
-     while(a.stillAlive() > 0 && b.stillAlive() > 0){
-        a.attack(&b);
-        b.attack(&a);
-        a.print();
-        b.print();
-     }
+   while(aT.stillAlive() > 0 && bT.stillAlive() > 0){
+      aT.attack(&bT);
+      bT.attack(&aT);
+      aT.print();
+      bT.print();
+   }
 
-     if (a.stillAlive() > 0) cout << "winner is a" << endl;
-     else cout << "winner is b" << endl;
+   if (aT.stillAlive() > 0) cout << "winner is a" << endl;
+   else cout << "winner is b" << endl;
 
-     return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack. 
+   return 0; // no memory issues. Team should free the memory of its members. both a and b teams are on the stack. 
 
 }

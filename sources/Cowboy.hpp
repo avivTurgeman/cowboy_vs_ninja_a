@@ -2,18 +2,21 @@
 #define COWBOY_HPP
 
 #include <string>
-#include "Point.hpp"
-using namespace std;
+#include "Character.hpp"
 
 namespace ariel{
-    class Cowboy{
+    class Cowboy : public Character{
         private:
-            string name_;
-            Point *point_;
+            int _balls_amount;
 
         public:
-            Cowboy(string, Point&);
-            ~Cowboy();
+            //constractor
+            Cowboy(std::string name, Point& location):
+            Character(name, location, 110), _balls_amount(6){}
+
+            void shoot(Character*);
+            bool hasboolets();
+            void reload();      
     };
 }
 

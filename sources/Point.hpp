@@ -8,7 +8,7 @@ namespace ariel{
             double y_;
 
         public:
-            Point(double, double);
+            Point(double x = 0, double y = 0);
 
             double distance(const Point&);
             void print();
