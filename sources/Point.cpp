@@ -4,17 +4,6 @@ using namespace std;
 
 namespace ariel{
 
-    double Point::_slope(const Point& other){
-        return ((_y - other.getY()) / (_x - other.getX()));
-    }
-
-    double Point::_line_equation_b_var(Point& point1, Point& point2){
-        double slope = point1._slope(point2);
-        double mx = slope * point1.getX();
-        double  b = (point1.getY() - (slope * point1.getX()));
-        return b;
-    }
-
     Point::Point():_x(0), _y(0){}
   
     Point::Point(double x, double y):
@@ -33,10 +22,13 @@ namespace ariel{
     }
 
     Point Point::moveTowards(Point& src, const Point& dest, double dist){
-        if(src.distance(dest) <= dist){
-            Point temp = dest;
-            return temp;
+        double srcToDestDist = src.distance(dest);
+        if(srcToDestDist <= dist){
+            return dest;
         }
-        double dist_pow = pow(dist, 2);
+        double angle = atan2(dest.getY() - src.getY(), dest.getX() - src.getX());
+        double newX = src.getX() + dist * cos(angle);
+        double newY = src.getY() + dist * sin(angle);
+        return Point(newX, newY);
     }
 }

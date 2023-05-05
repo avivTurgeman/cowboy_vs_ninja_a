@@ -9,8 +9,6 @@ namespace ariel{
         private:
             double _x;
             double _y;
-            double _slope(const Point&);
-            double _line_equation_b_var(Point&, Point&);
 
         public:
             Point();

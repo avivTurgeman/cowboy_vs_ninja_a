@@ -18,9 +18,14 @@ namespace ariel{
             bool isAlive();
             double distance(Character*);
             void hit(int);
-            std::string getName();
-            Point getLocation();
             virtual void Print();
+
+            std::string getName(){
+                return -_name;
+            }
+            Point* getLocation(){
+                return _location;
+            }
     };
 }
 
