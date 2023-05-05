@@ -1,19 +1,33 @@
 #ifndef POINT_HPP
 #define POINT_HPP
 
+#include <iostream>
+#include <cmath>
+
 namespace ariel{
     class Point{
         private:
-            double x_;
-            double y_;
+            double _x;
+            double _y;
+            double _slope(const Point&);
+            double _line_equation_b_var(Point&, Point&);
 
         public:
-            Point(double x = 0, double y = 0);
+            Point();
+            
+            Point(double x, double y);
 
-            double distance(const Point&);
+            double distance(const Point& other);
+
             void print();
-            Point moveTowards(Point&, Point&, double);
-
+            Point moveTowards(Point&, const Point&, double);
+            
+            double getX() const{
+                return _x;
+            }
+            double getY() const{
+                return _y;
+            }
     };
 }
 

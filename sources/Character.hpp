@@ -13,7 +13,7 @@ namespace ariel{
 
         public:
             //constructor
-            Character(std::string, Point&, int hp);
+            Character(std::string, Point*, int hp);
 
             bool isAlive();
             double distance(Character*);
