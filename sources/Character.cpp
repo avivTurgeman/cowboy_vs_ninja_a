@@ -4,8 +4,8 @@ using namespace std;
 
 namespace ariel{
     
-    Character::Character(string name, Point* location, int hp):
-    _name(name), _location(location), _hp(hp){}
+    Character::Character(string name, Point& location, int hp):
+    _name(name), _location(&location), _hp(hp){}
 
     bool Character::isAlive(){
         if(_hp > 0){
@@ -15,10 +15,19 @@ namespace ariel{
     }
 
     double Character::distance(Character* other){
-        return _location.distance(other.getLocation());
+        double distance = _location->distance(*(other->getLocation()));
+        return distance;
     }
 
     void Character::hit(int damage){
-        _hp -= damage;
+        if(_hp > 0){
+            _hp -= damage;
+            if(_hp < 0){
+                _hp = 0;
+            }
+        }
+        else{
+            throw runtime_error("Character is dead");
+        }
     }
 }

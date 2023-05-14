@@ -17,11 +17,12 @@ namespace ariel{
         return sqrt(x_pow + y_pow);
     }
 
-    void Point::print(){
-        cout << "(" << _x << "," << _y << ")\n";
+    string Point::print(){
+        return "(" +std::to_string(_x) + 
+        "," + std::to_string(_y) + ")";
     }
 
-    Point Point::moveTowards(Point& src, const Point& dest, double dist){
+    Point& Point::moveTowards(Point& src, Point& dest, double dist){
         double srcToDestDist = src.distance(dest);
         if(srcToDestDist <= dist){
             return dest;

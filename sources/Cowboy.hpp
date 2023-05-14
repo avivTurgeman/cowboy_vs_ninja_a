@@ -11,12 +11,12 @@ namespace ariel{
 
         public:
             //constractor
-            Cowboy(std::string name, Point& location):
-            Character(name, location, 110), _balls_amount(6){}
+            Cowboy(std::string, Point);
 
             void shoot(Character*);
             bool hasboolets();
-            void reload();      
+            void reload();
+            std::string print();      
     };
 }
 

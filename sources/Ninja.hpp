@@ -5,17 +5,17 @@
 
 namespace ariel{
     class Ninja : public Character{
-        private:
+        protected:
             int _speed;
 
         public:
             //constructor
-            Ninja(std::string name, Point& location, int hp, int speed):
-            Character(name, location, hp), _speed(speed){}
+            Ninja(std::string name, Point& location, int hp, int speed);
 
             //Ninja methods
             void move(Character*);
             void slash(Character*);
+            std::string print();
     };
 }
 

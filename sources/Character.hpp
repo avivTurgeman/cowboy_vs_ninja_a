@@ -6,25 +6,29 @@
 
 namespace ariel{
     class Character{
-        private:
+        protected:
             Point* _location;
             int _hp;
             std::string _name;
 
         public:
             //constructor
-            Character(std::string, Point*, int hp);
+            Character(std::string, Point&, int hp);
 
             bool isAlive();
             double distance(Character*);
             void hit(int);
-            virtual void Print();
+            virtual std::string print();
 
             std::string getName(){
-                return -_name;
+                return _name;
             }
             Point* getLocation(){
                 return _location;
+            }
+
+            void setLocation(Point* location){
+                _location = location;
             }
     };
 }

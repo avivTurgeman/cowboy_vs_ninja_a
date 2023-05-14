@@ -2,6 +2,7 @@
 #define POINT_HPP
 
 #include <iostream>
+#include <string>
 #include <cmath>
 
 namespace ariel{
@@ -17,8 +18,9 @@ namespace ariel{
 
             double distance(const Point& other);
 
-            void print();
-            Point moveTowards(Point&, const Point&, double);
+            std::string print();
+            
+            Point& moveTowards(Point&, Point&, double);
             
             double getX() const{
                 return _x;
