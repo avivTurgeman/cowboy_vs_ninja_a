@@ -10,15 +10,16 @@
 namespace ariel{
     class Team{
         private:
-            Character* _warriors[10];
+            Character* _champions[10];
             Character* _team_leader;
+            int _champions_count;
 
         public:
             //constructor
             Team(Character*);
 
             //distructor
-            ~Team();
+            // ~Team();
             
             //Team methods
             void add(Character*);
