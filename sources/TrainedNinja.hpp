@@ -8,7 +8,7 @@ namespace ariel{
 
         public:
             //constructor
-            TrainedNinja(std::string name, Point& location);
+            TrainedNinja(std::string name, const Point& location);
     };
 }
 

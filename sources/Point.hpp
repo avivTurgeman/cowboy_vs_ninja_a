@@ -12,15 +12,14 @@ namespace ariel{
             double _y;
 
         public:
-            Point();
             
             Point(double x, double y);
 
-            double distance(const Point& other);
+            double distance(const Point& other) const;
 
-            std::string print();
+            std::string print() const;
             
-            Point& moveTowards(Point&, Point&, double);
+            static Point moveTowards(Point, Point, double);
             
             double getX() const{
                 return _x;

@@ -4,12 +4,10 @@ using namespace std;
 
 namespace ariel{
 
-    Point::Point():_x(0), _y(0){}
-  
     Point::Point(double x, double y):
     _x(x), _y(y){}
 
-    double Point::distance(const Point& other){
+    double Point::distance(const Point& other) const{
         double otherX = other.getX();
         double otherY = other.getY();
         double x_pow = pow((otherX - _x), 2);
@@ -17,12 +15,12 @@ namespace ariel{
         return sqrt(x_pow + y_pow);
     }
 
-    string Point::print(){
+    string Point::print() const{
         return "(" +std::to_string(_x) + 
         "," + std::to_string(_y) + ")";
     }
 
-    Point& Point::moveTowards(Point& src, Point& dest, double dist){
+    Point Point::moveTowards(Point src, Point dest, double dist){
         double srcToDestDist = src.distance(dest);
         if(srcToDestDist <= dist){
             return dest;

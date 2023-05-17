@@ -8,7 +8,7 @@ namespace ariel{
 
         public:
             //constructor
-            OldNinja(std::string name, Point& location);
+            OldNinja(std::string name, const Point& location);
     };
 }
 

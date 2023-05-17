@@ -18,14 +18,14 @@ namespace ariel{
         }
     }
 
-    void attack(Team *){
-        
+    void Team::attack(Team *){
+        return;
     }
 
-    int stillAlive(){
-        return 1;
+    int Team::stillAlive() const{
+        return 0;
     }
-    void print(){
-
+    void Team::print() const{
+        return;
     }
 }

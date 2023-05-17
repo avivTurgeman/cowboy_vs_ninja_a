@@ -2,7 +2,7 @@
 
 using namespace std;
 namespace ariel{
-    Cowboy::Cowboy(std::string name, Point location):
+    Cowboy::Cowboy(std::string name, const Point &location):
     Character(name, location, 110), _balls_amount(6){}
 
     void Cowboy::shoot(Character* other){
@@ -25,7 +25,7 @@ namespace ariel{
         if(isAlive()){
             return  "Name: " + _name + 
             "\nHP: " + std::to_string(_hp) + 
-            "\nPoint: " + _location->print() + "\n";
+            "\nPoint: " + _location.print() + "\n";
         }
         return "C(" + _name + ")\n";
     }

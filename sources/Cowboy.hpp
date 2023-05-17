@@ -11,12 +11,12 @@ namespace ariel{
 
         public:
             //constractor
-            Cowboy(std::string, Point);
+            Cowboy(std::string,const Point&);
 
             void shoot(Character*);
             bool hasboolets();
             void reload();
-            std::string print();      
+            std::string print() override;      
     };
 }
 
